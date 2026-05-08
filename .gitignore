@@ -27,4 +27,5 @@ bin/
 .vscode/
 
 ### Custom ###
-input_data/
+input_data/dataset.csv
+output_data/task_*/

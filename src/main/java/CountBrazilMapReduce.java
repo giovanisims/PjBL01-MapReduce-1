@@ -4,6 +4,8 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 
 import java.io.IOException;
+import utils.CSVParser;
+
 
 public class CountBrazilMapReduce {
 
@@ -16,9 +18,10 @@ public class CountBrazilMapReduce {
         @Override
         public void map(LongWritable key, Text line, Context context) throws IOException, InterruptedException {
 
-            String[] columns = line.toString().split(";");
-
-            if (columns.length < 10 || line.toString().startsWith("country_or_area")) { return; }
+            String[] columns = CSVParser.parseAndValidate(line);
+            if (columns == null) {
+                return;
+            }
 
             String country = columns[0].trim();
             if (country.equalsIgnoreCase("Brazil")) {

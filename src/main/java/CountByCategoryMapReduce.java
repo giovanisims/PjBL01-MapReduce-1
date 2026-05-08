@@ -3,6 +3,8 @@ import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 import java.io.IOException;
+import utils.CSVParser;
+
 
 public class CountByCategoryMapReduce {
     public static class Map extends Mapper<LongWritable, Text, Text, IntWritable> {
@@ -11,8 +13,10 @@ public class CountByCategoryMapReduce {
 
         @Override
         public void map(LongWritable key, Text line, Context context) throws IOException, InterruptedException {
-            String[] columns = line.toString().split(";");
-            if (columns.length < 10 || line.toString().startsWith("country_or_area")) { return; }
+            String[] columns = CSVParser.parseAndValidate(line);
+            if (columns == null) {
+                return;
+            }
 
             String category = columns[9].trim();
             categoryKey.set(category);
