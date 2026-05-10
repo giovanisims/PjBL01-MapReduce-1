@@ -1,26 +1,26 @@
 package writables;
-
-import org.apache.hadoop.io.LongWritable;
+ 
+import org.apache.hadoop.io.DoubleWritable;
 import org.apache.hadoop.io.Writable;
 import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
 
 public class MinMaxWritable implements Writable {
-    private final LongWritable min;
-    private final LongWritable max;
+    private final DoubleWritable min;
+    private final DoubleWritable max;
 
     public MinMaxWritable() {
-        this.min = new LongWritable();
-        this.max = new LongWritable();
+        this.min = new DoubleWritable();
+        this.max = new DoubleWritable();
     }
 
-    public MinMaxWritable(long min, long max) {
-        this.min = new LongWritable(min);
-        this.max = new LongWritable(max);
+    public MinMaxWritable(double min, double max) {
+        this.min = new DoubleWritable(min);
+        this.max = new DoubleWritable(max);
     }
 
-    public void set(long min, long max) {
+    public void set(double min, double max) {
         this.min.set(min);
         this.max.set(max);
     }
@@ -37,11 +37,11 @@ public class MinMaxWritable implements Writable {
         max.readFields(in);
     }
 
-    public long getMin() { return min.get(); }
-    public long getMax() { return max.get(); }
+    public double getMin() { return min.get(); }
+    public double getMax() { return max.get(); }
 
     @Override
     public String toString() {
-        return "Min: " + min.get() + " | Max: " + max.get();
+        return "Min: " + (long) min.get() + " | Max: " + (long) max.get();
     }
 }

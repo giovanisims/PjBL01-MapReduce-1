@@ -1,1 +1,13 @@
+/home/giovanisims/github/PjBL01-MapReduce-1/src/main/java/AvgBrazilByYearMapReduce.java
+/home/giovanisims/github/PjBL01-MapReduce-1/src/main/java/AvgExportBrazilByYearMapReduce.java
+/home/giovanisims/github/PjBL01-MapReduce-1/src/main/java/CountBrazilMapReduce.java
+/home/giovanisims/github/PjBL01-MapReduce-1/src/main/java/CountByCategoryMapReduce.java
+/home/giovanisims/github/PjBL01-MapReduce-1/src/main/java/CountByFlowMapReduce.java
+/home/giovanisims/github/PjBL01-MapReduce-1/src/main/java/CountByYearMapReduce.java
 /home/giovanisims/github/PjBL01-MapReduce-1/src/main/java/Main.java
+/home/giovanisims/github/PjBL01-MapReduce-1/src/main/java/MinMaxAmountByCountryYearMapReduce.java
+/home/giovanisims/github/PjBL01-MapReduce-1/src/main/java/MinMaxBrazil2016MapReduce.java
+/home/giovanisims/github/PjBL01-MapReduce-1/src/main/java/utils/CSVParser.java
+/home/giovanisims/github/PjBL01-MapReduce-1/src/main/java/writables/AvgWritable.java
+/home/giovanisims/github/PjBL01-MapReduce-1/src/main/java/writables/CountryYearWritable.java
+/home/giovanisims/github/PjBL01-MapReduce-1/src/main/java/writables/MinMaxWritable.java

@@ -1,26 +1,26 @@
 package writables;
 import org.apache.hadoop.io.IntWritable;
-import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.DoubleWritable;
 import org.apache.hadoop.io.Writable;
 import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
 
 public class AvgWritable implements Writable {
-    private final LongWritable sum;
+    private final DoubleWritable sum;
     private final IntWritable count;
 
     public AvgWritable() {
-        this.sum = new LongWritable(0);
+        this.sum = new DoubleWritable(0);
         this.count = new IntWritable(0);
     }
 
-    public AvgWritable(long sum, int count) {
-        this.sum = new LongWritable(sum);
+    public AvgWritable(double sum, int count) {
+        this.sum = new DoubleWritable(sum);
         this.count = new IntWritable(count);
     }
 
-    public void set(long sum, int count) {
+    public void set(double sum, int count) {
         this.sum.set(sum);
         this.count.set(count);
     }
@@ -37,6 +37,6 @@ public class AvgWritable implements Writable {
         count.readFields(in);
     }
 
-    public long getSum() { return sum.get(); }
+    public double getSum() { return sum.get(); }
     public int getCount() { return count.get(); }
 }

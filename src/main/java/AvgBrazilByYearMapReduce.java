@@ -28,7 +28,7 @@ public class AvgBrazilByYearMapReduce {
                 String year = columns[1].trim();
 
                 try {
-                    long price = Long.parseLong(columns[5].trim());
+                    double price = Double.parseDouble(columns[5].trim());
 
                     yearKey.set(Integer.parseInt(year));
                     avgValue.set(price, 1);
@@ -48,7 +48,7 @@ public class AvgBrazilByYearMapReduce {
         public void reduce(IntWritable key, Iterable<AvgWritable> values, Context context)
                 throws IOException, InterruptedException {
 
-            long sum = 0L;
+            double sum = 0;
             int count = 0;
 
             for (AvgWritable val : values) {
@@ -61,15 +61,15 @@ public class AvgBrazilByYearMapReduce {
         }
     }
 
-    public static class Reduce extends Reducer<IntWritable, AvgWritable, IntWritable, DoubleWritable> {
+    public static class Reduce extends Reducer<IntWritable, AvgWritable, IntWritable, Text> {
 
-        private final DoubleWritable result = new DoubleWritable();
+        private final Text result = new Text();
 
         @Override
         public void reduce(IntWritable key, Iterable<AvgWritable> values, Context context)
                 throws IOException, InterruptedException {
 
-            long sum = 0L;
+            double sum = 0;
             int count = 0;
 
             for (AvgWritable val : values) {
@@ -78,8 +78,8 @@ public class AvgBrazilByYearMapReduce {
             }
 
             if (count > 0) {
-                double avg = (double) sum / count;
-                result.set(avg);
+                double avg = sum / count;
+                result.set(String.format("%.2f", avg));
                 context.write(key, result);
             }
         }

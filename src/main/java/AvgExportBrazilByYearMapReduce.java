@@ -28,7 +28,7 @@ public class AvgExportBrazilByYearMapReduce {
 
             if (country.equalsIgnoreCase("Brazil") && flow.equalsIgnoreCase("Export")) {
                 try {
-                    long price = Long.parseLong(columns[5].trim());
+                    double price = Double.parseDouble(columns[5].trim());
                     yearKey.set(Integer.parseInt(year));
                     avgValue.set(price, 1);
                     context.write(yearKey, avgValue);
@@ -46,7 +46,7 @@ public class AvgExportBrazilByYearMapReduce {
         public void reduce(IntWritable key, Iterable<AvgWritable> values, Context context)
                 throws IOException, InterruptedException {
 
-            long sum = 0L;
+            double sum = 0;
             int count = 0;
 
             for (AvgWritable val : values) {
@@ -59,14 +59,14 @@ public class AvgExportBrazilByYearMapReduce {
         }
     }
 
-    public static class Reduce extends Reducer<IntWritable, AvgWritable, IntWritable, DoubleWritable> {
-        private final DoubleWritable result = new DoubleWritable();
+    public static class Reduce extends Reducer<IntWritable, AvgWritable, IntWritable, Text> {
+        private final Text result = new Text();
 
         @Override
         public void reduce(IntWritable key, Iterable<AvgWritable> values, Context context)
                 throws IOException, InterruptedException {
 
-            long sum = 0L;
+            double sum = 0;
             int count = 0;
 
             for (AvgWritable val : values) {
@@ -75,8 +75,8 @@ public class AvgExportBrazilByYearMapReduce {
             }
 
             if (count > 0) {
-                double avg = (double) sum / count;
-                result.set(avg);
+                double avg = sum / count;
+                result.set(String.format("%.2f", avg));
                 context.write(key, result);
             }
         }

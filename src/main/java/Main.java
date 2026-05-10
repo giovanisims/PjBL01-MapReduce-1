@@ -1,7 +1,6 @@
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.io.DoubleWritable;
 import org.apache.hadoop.io.IntWritable;
 
 import org.apache.hadoop.io.Text;
@@ -13,7 +12,7 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 public class Main {
     public static void main(String[] args) throws Exception {
 
-        // IF RUNNING THROUGH IDE CHANGE USE THIS VARIABLE TO CHOOSE THE TASK
+        // IF RUNNING THROUGH IDE USE THIS VARIABLE TO CHOOSE THE TASK
         String taskId = "8";
         taskId = args.length > 0 ? args[0] : taskId;
 
@@ -62,7 +61,7 @@ public class Main {
                 job.setReducerClass(AvgBrazilByYearMapReduce.Reduce.class);
                 job.setMapOutputValueClass(writables.AvgWritable.class);
                 job.setOutputKeyClass(IntWritable.class);
-                job.setOutputValueClass(DoubleWritable.class);
+                job.setOutputValueClass(Text.class);
                 break;
 
             case "6":
@@ -80,7 +79,7 @@ public class Main {
                 job.setReducerClass(AvgExportBrazilByYearMapReduce.Reduce.class);
                 job.setMapOutputValueClass(writables.AvgWritable.class);
                 job.setOutputKeyClass(IntWritable.class);
-                job.setOutputValueClass(DoubleWritable.class);
+                job.setOutputValueClass(Text.class);
                 break;
 
             case "8":

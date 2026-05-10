@@ -24,7 +24,7 @@ public class MinMaxAmountByCountryYearMapReduce {
             String year = columns[1].trim();
 
             try {
-                long price = Long.parseLong(columns[5].trim());
+                double price = Double.parseDouble(columns[5].trim());
                 compositeKey.set(country, Integer.parseInt(year));
                 minMax.set(price, price);
                 context.write(compositeKey, minMax);
@@ -40,8 +40,8 @@ public class MinMaxAmountByCountryYearMapReduce {
         @Override
         public void reduce(CountryYearWritable key, Iterable<MinMaxWritable> values, Context context)
                 throws IOException, InterruptedException {
-            long min = Long.MAX_VALUE;
-            long max = Long.MIN_VALUE;
+            double min = Double.MAX_VALUE;
+            double max = Double.MIN_VALUE;
 
             for (MinMaxWritable val : values) {
                 if (val.getMin() < min)

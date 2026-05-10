@@ -24,7 +24,7 @@ public class MinMaxBrazil2016MapReduce {
 
             if (country.equalsIgnoreCase("Brazil") && year.equals("2016")) {
                 try {
-                    long price = Long.parseLong(columns[5].trim());
+                    double price = Double.parseDouble(columns[5].trim());
                     minMax.set(price, price);
                     context.write(resultKey, minMax);
                 } catch (NumberFormatException e) {
@@ -41,8 +41,8 @@ public class MinMaxBrazil2016MapReduce {
         @Override
         public void reduce(Text key, Iterable<MinMaxWritable> values, Context context)
                 throws IOException, InterruptedException {
-            long min = Long.MAX_VALUE;
-            long max = Long.MIN_VALUE;
+            double min = Double.MAX_VALUE;
+            double max = Double.MIN_VALUE;
 
             for (MinMaxWritable val : values) {
                 if (val.getMin() < min)
@@ -61,8 +61,8 @@ public class MinMaxBrazil2016MapReduce {
         @Override
         public void reduce(Text key, Iterable<MinMaxWritable> values, Context context)
                 throws IOException, InterruptedException {
-            long min = Long.MAX_VALUE;
-            long max = Long.MIN_VALUE;
+            double min = Double.MAX_VALUE;
+            double max = Double.MIN_VALUE;
 
             for (MinMaxWritable val : values) {
                 if (val.getMin() < min)
