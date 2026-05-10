@@ -1,0 +1,151 @@
+Resultados da Execução - Projeto MapReduce de Comércio Internacional
+
+Questão 1: Número de transações envolvendo o Brasil.
+Resultado:
+Brazil	184748
+
+---
+
+Questão 2: Número de transações por ano.
+Resultado:
+1988	30994
+1989	63921
+1990	72258
+1991	83933
+1992	121184
+1993	154704
+1994	198175
+1995	233339
+1996	252332
+1997	281026
+1998	291566
+1999	309629
+2000	345967
+2001	347584
+2002	346373
+2003	358638
+2004	362326
+2005	369258
+2006	378065
+2007	374327
+2008	363605
+2009	373939
+2010	373791
+2011	374596
+2012	377343
+2013	370936
+2014	364454
+2015	359052
+2016	289510
+
+---
+
+Questão 3: Número de transações por categoria.
+Resultado (Amostra):
+01_live_animals	56580
+02_meat_and_edible_meat_offal	100000
+03_fish_crustaceans_molluscs_aquatic_invertebrates_ne	100000
+04_dairy_products_eggs_honey_edible_animal_product_nes	100000
+05_products_of_animal_origin_nes	59103
+06_live_trees_plants_bulbs_roots_cut_flowers_etc	60555
+07_edible_vegetables_and_certain_roots_and_tubers	100000
+08_edible_fruit_nuts_peel_of_citrus_fruit_melons	100000
+09_coffee_tea_mate_and_spices	100000
+10_cereals	81278
+(Lista completa no arquivo de saída task_3)
+
+---
+
+Questão 4: Número de transações por tipo de fluxo (flow).
+Resultado:
+Import	4846943
+Export	2855135
+Re-Export	367070
+Re-Import	153677
+
+---
+
+Questão 5: Valor médio das transações por ano somente no Brasil.
+Resultado:
+1989	16514942.88
+1990	16198716.66
+1991	15610488.20
+1992	16402189.40
+1993	17877351.57
+1994	21015942.06
+1995	26127878.07
+1996	27174035.44
+1997	30510878.10
+1998	28902272.24
+1999	25657697.34
+2000	27875778.20
+2001	28500592.47
+2002	27202337.19
+2003	30796892.62
+2004	40692067.19
+2005	48368289.01
+2006	57665190.71
+2007	73996004.91
+2008	97976044.09
+2009	74559143.22
+2010	101476007.54
+2011	127685341.09
+2012	132989004.50
+2013	138328066.74
+2014	121714626.37
+2015	97195178.37
+2016	92889190.54
+
+---
+
+Questão 6: Transação mais cara e mais barata no Brasil em 2016.
+Resultado:
+Brazil 2016	Min: 5 | Max: 185235399101
+
+---
+
+Questão 7: Valor médio das transações por ano, considerando somente as transações do tipo exportação (Export) realizadas no Brasil.
+Resultado:
+1989	21793539.86
+1990	20949254.23
+1991	20097529.01
+1992	21680178.96
+1993	22884613.46
+1994	25997448.00
+1995	28063145.14
+1996	29066103.77
+1997	32217857.81
+1998	30718852.67
+1999	28221083.58
+2000	32050113.00
+2001	33804480.22
+2002	35183377.09
+2003	42054285.33
+2004	55795944.60
+2005	67418800.00
+2006	78861494.21
+2007	94385698.65
+2008	120406346.03
+2009	95042628.71
+2010	126516210.12
+2011	159725895.06
+2012	152789275.10
+2013	154240217.81
+2014	143327216.61
+2015	121908757.38
+2016	116890175.16
+
+---
+
+Questão 8: Transação com o maior e menor preço (com base na coluna amount), por ano e país.
+Resultado (Amostra):
+Afghanistan (2008)	Min: 480 | Max: 3019860129
+Afghanistan (2009)	Min: 460 | Max: 3336434781
+Afghanistan (2010)	Min: 5030 | Max: 5154249867
+Afghanistan (2011)	Min: 2354 | Max: 6390310947
+Afghanistan (2012)	Min: 1014803 | Max: 6204984101
+Algeria (2010)	Min: 2 | Max: 57050973573
+Algeria (2011)	Min: 1 | Max: 73436306091
+Brazil (1989)	Min: 3 | Max: 34382582784
+Brazil (2016)	Min: 5 | Max: 185235399101
+(Lista completa com centenas de países e anos no arquivo de saída task_8)
